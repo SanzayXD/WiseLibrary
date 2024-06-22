@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { CiLogout } from "react-icons/ci";
 
 interface SidebarProps {
   items: Array<{
@@ -39,6 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
               </Link>
             </li>
           ))}
+          <li></li>
         </ul>
       </nav>
     </div>

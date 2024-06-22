@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 300px;
+  padding: 30px;
+}
+.btnContain {
+  display: flex;
+  gap: 10px;
+}
+
+.second {
+  background-image: url("background.jpg");
+  background-size: cover;
+  width: 400px;
+  height: autp;
+}
