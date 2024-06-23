@@ -33,7 +33,6 @@ const ForgotPassword = () => {
 
   const onSubmit = (data: ForgotPasswordSchema) => {
     console.log(data);
-    // Handle password reset logic here
   };
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 interface Book {
   title: string;
@@ -20,18 +21,18 @@ const Books: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setNewBook({ ...newBook, [name]: value });
+    setNewBook((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setNewBook({ ...newBook, pdfFile: e.target.files[0] });
+      setNewBook((prev) => ({ ...prev, pdfFile: e.target.files![0] }));
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setBooks([...books, newBook]);
+    setBooks((prevBooks) => [...prevBooks, newBook]);
     setNewBook({ title: "", author: "", publishedDate: "", pdfFile: null });
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
@@ -50,14 +51,17 @@ const Books: React.FC = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Books Page</h2>
-
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-semibold text-gray-800">Book List</h2>
+        <Link to="/login" className="text-blue-500 hover:underline">
+          Logout
+        </Link>
+      </div>
       {notification && (
         <div className="mb-4 p-2 bg-green-100 border border-green-400 text-green-700 rounded">
           {notification}
         </div>
       )}
-
       <form onSubmit={handleSubmit} className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Add New Book</h3>
         <div className="space-y-2">
@@ -103,9 +107,7 @@ const Books: React.FC = () => {
           Add Book
         </button>
       </form>
-
       <div>
-        <h3 className="text-xl font-semibold mb-2">Book List</h3>
         {books.map((book, index) => (
           <div key={index} className="mb-2 p-2 border rounded">
             <p>
@@ -119,9 +121,19 @@ const Books: React.FC = () => {
             </p>
             <p>
               <strong>PDF:</strong>{" "}
-              {book.pdfFile ? book.pdfFile.name : "No PDF uploaded"}
+              {book.pdfFile ? (
+                <a
+                  href={URL.createObjectURL(book.pdfFile)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  {book.pdfFile.name}
+                </a>
+              ) : (
+                "No PDF uploaded"
+              )}
             </p>
-            <button>logout</button>
           </div>
         ))}
       </div>

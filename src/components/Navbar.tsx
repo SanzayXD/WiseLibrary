@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { CiLogout } from "react-icons/ci";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
 interface NavbarProps {
   title: string;
   user?: {
@@ -43,13 +45,16 @@ const Navbar: React.FC<NavbarProps> = ({ title, user }) => {
           </div>
           {dropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
-              <button
-                className="block px-4 py-2 w-full text-left text-gray-700 hover:bg-gray-100"
-                onClick={handleLogout}
-              >
-                <CiLogout className="mr-2 text-xl inline" />
-                Logout
-              </button>
+              <Link to="/login">
+                <button
+                  className="block px-4 py-2 w-full text-left text-gray-700 hover:bg-gray-100"
+                  onClick={handleLogout}
+                >
+                  <CiLogout className="mr-2 text-xl inline" />
+                  Logout
+                </button>
+              </Link>
+
               <button
                 className="block px-4 py-2 w-full text-left text-gray-700 hover:bg-gray-100"
                 onClick={handlepasswordchange}

@@ -52,7 +52,7 @@ const Register = () => {
               {...register("email", { required: "Email is required" })}
               error={!!errors.email}
               helperText={errors.email?.message}
-              className="mb-4 w-full"
+              className="mb-6 w-full"
             />
             <TextField
               id="password"
@@ -62,7 +62,7 @@ const Register = () => {
               {...register("password", { required: "Password is required" })}
               error={!!errors.password}
               helperText={errors.password?.message}
-              className="mb-4 w-full"
+              className="mb-6 w-full"
             />
             <TextField
               id="confirmPassword"

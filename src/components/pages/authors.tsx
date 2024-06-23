@@ -1,4 +1,14 @@
+import React from "react";
 import Profile from "../../assets/icons/pfp.jpg";
+
+// Mock data for top books
+const topBooks = [
+  { title: "The Silent Whisper", year: 2019, rating: 4.8 },
+  { title: "Shadows in the Mist", year: 2021, rating: 4.9 },
+  { title: "Echoes of Deception", year: 2018, rating: 4.7 },
+  { title: "The Forgotten Key", year: 2020, rating: 4.6 },
+  { title: "Beneath the Surface", year: 2022, rating: 4.9 },
+];
 
 const Authors: React.FC = () => (
   <div className="p-6 flex-col">
@@ -42,8 +52,29 @@ const Authors: React.FC = () => (
       the boundaries of the thriller genre, crafting stories that challenge and
       captivate his audience.
     </p>
-
-    <h1 className="font-600 text-xl mt-[10rem] ">Top Books</h1>
+    <h1 className="font-600 text-xl mt-[10rem] mb-4">Top Books</h1>
+    <table className="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-100">
+          <th className="border border-gray-300 p-2">Title</th>
+          <th className="border border-gray-300 p-2">Year</th>
+          <th className="border border-gray-300 p-2">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {topBooks.map((book, index) => (
+          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
+            <td className="border border-gray-300 p-2">{book.title}</td>
+            <td className="border border-gray-300 p-2 text-center">
+              {book.year}
+            </td>
+            <td className="border border-gray-300 p-2 text-center">
+              {book.rating}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   </div>
 );
 
