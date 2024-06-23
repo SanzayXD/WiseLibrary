@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Background from "../../../assets/Background.png";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
+import Background from "../../../assets/Background.png";
 
 interface ForgotPasswordSchema {
   email: string;

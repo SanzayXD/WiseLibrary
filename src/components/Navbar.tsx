@@ -54,14 +54,15 @@ const Navbar: React.FC<NavbarProps> = ({ title, user }) => {
                   Logout
                 </button>
               </Link>
-
-              <button
-                className="block px-4 py-2 w-full text-left text-gray-700 hover:bg-gray-100"
-                onClick={handlepasswordchange}
-              >
-                <RiLockPasswordLine className="mr-2 text-x inline" />
-                Change Passoword
-              </button>
+              <Link to="/forgotpw">
+                <button
+                  className="block px-4 py-2 w-full text-left text-gray-700 hover:bg-gray-100"
+                  onClick={handlepasswordchange}
+                >
+                  <RiLockPasswordLine className="mr-2 text-x inline" />
+                  Change Passoword
+                </button>
+              </Link>
             </div>
           )}
         </div>
