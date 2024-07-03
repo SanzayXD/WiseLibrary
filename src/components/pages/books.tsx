@@ -53,9 +53,6 @@ const Books: React.FC = () => {
     <div className="p-6">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold text-gray-800">Book List</h2>
-        <Link to="/login" className="text-blue-500 hover:underline">
-          Logout
-        </Link>
       </div>
       {notification && (
         <div className="mb-4 p-2 bg-green-100 border border-green-400 text-green-700 rounded">
